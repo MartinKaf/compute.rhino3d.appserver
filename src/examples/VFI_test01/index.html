@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>VFI_demo</title>
+        <style>
+            body { margin: 0; }
+            canvas { width: 100%; height: 100%; }
+            input {width: 30%;}
+            #container {position: relative;}
+            #container canvas, #overlay { position: absolute;}
+            #overlay {z-index: 1; width: 100%}
+
+            #loader {
+                border: 5px solid #f3f3f3; /* Light grey */
+                border-top: 5px solid #3d3d3d; /* Grey */
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                animation: spin 1s linear infinite;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                z-index: 2;
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="loader"></div> 
+        <div id="container">
+            <div id="overlay">
+                <div>
+                    <input type="range" id="twist" name="twist" min="0" max="360" value="148" step="1">
+                    <label for="twist">Twist</label>
+                </div>
+                <div>
+                    <input type="range" id="width" name="width" min="0.1" max="1.0" value="0.5" step="0.01">
+                    <label for="width">Width</label>
+                </div>
+                <div>
+                    <input type="range" id="depth" name="depth" min="0.1" max="1.0" value="0.5" step="0.01">
+                    <label for="depth">Depth</label>
+                </div>
+                <div>
+                    <input type="range" id="height" name="height" min="0.1" max="1.0" value="0.5" step="0.01">
+                    <label for="height">Height</label>
+                </div>
+                <div>
+                    <input type="range" id="PV_coverage" name="PV_coverage" min="0.01" max="1.0" value="0.5" step="0.01">
+                    <label for="PV_coverage">PV_coverage</label>
+                </div>
+            </div>
+        </div>
+        <script type="module" src="./script.js"></script>
+    </body>
+</html>
